@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Wanandroid</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">首页</string>
+    <string name="title_system">知识体系</string>
+    <string name="title_navigation">导航</string>
+    <string name="title_project">项目</string>
+</resources>

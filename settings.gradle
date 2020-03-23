@@ -1,0 +1,3 @@
+rootProject.name='Wanandroid'
+include ':app'
+include ':library'
