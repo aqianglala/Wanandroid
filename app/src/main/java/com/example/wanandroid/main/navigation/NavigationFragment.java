@@ -1,4 +1,4 @@
-package com.example.wanandroid.main.ui.notifications;
+package com.example.wanandroid.main.navigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 import com.example.wanandroid.R;
 
 
-public class NotificationsFragment extends Fragment {
+public class NavigationFragment extends Fragment {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View root = inflater.inflate(R.layout.fragment_navigation, container, false);
         return root;
     }
 }
