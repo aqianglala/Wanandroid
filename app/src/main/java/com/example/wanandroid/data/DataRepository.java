@@ -1,6 +1,6 @@
 package com.example.wanandroid.data;
 
-import com.example.wanandroid.beans.Article;
+import com.example.wanandroid.beans.Banner;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
 import com.example.wanandroid.net.HttpHelper;
@@ -33,6 +33,11 @@ public class DataRepository {
     public Observable<Result<Page>> getArticles(int page) {
         return HttpHelper.getRxRestService()
                 .getArticles(page);
+    }
+
+    public Observable<Result<List<Banner>>> getBanner() {
+        return HttpHelper.getRxRestService()
+                .getBanner();
     }
 
 }

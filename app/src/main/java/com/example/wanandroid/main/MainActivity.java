@@ -36,7 +36,8 @@ public class MainActivity extends BaseActivity {
 
         mHomeFragment = new HomeFragment();
         mCurrentFragment = mHomeFragment;
-        getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, mCurrentFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,
+                mCurrentFragment).commit();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -69,7 +70,8 @@ public class MainActivity extends BaseActivity {
                         break;
                 }
                 if (mCurrentFragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_container, mCurrentFragment).commitAllowingStateLoss();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_container,
+                            mCurrentFragment).commitAllowingStateLoss();
                 }
                 return true;
             }

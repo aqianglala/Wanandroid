@@ -1,7 +1,7 @@
 package com.example.wanandroid.net;
 
 
-import com.example.wanandroid.beans.Article;
+import com.example.wanandroid.beans.Banner;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
 
@@ -15,4 +15,7 @@ public interface ApiService {
 
     @GET("article/list/{page}/json")
     Observable<Result<Page>> getArticles(@Path("page") int page);
+
+    @GET("banner/json")
+    Observable<Result<List<Banner>>> getBanner();
 }

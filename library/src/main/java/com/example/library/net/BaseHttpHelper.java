@@ -1,7 +1,6 @@
 package com.example.library.net;
 
 
-
 import com.example.library.app.ConfigKeys;
 import com.example.library.app.GlobalConfig;
 
@@ -27,7 +26,8 @@ public final class BaseHttpHelper {
     private static final class OKHttpHolder {
         private static final int TIME_OUT = 60;
         private static final OkHttpClient.Builder BUILDER = new OkHttpClient.Builder();
-        private static final ArrayList<Interceptor> INTERCEPTORS = GlobalConfig.getConfiguration(ConfigKeys.INTERCEPTOR);
+        private static final ArrayList<Interceptor> INTERCEPTORS =
+                GlobalConfig.getConfiguration(ConfigKeys.INTERCEPTOR);
 
         private static OkHttpClient.Builder addInterceptor() {
             if (INTERCEPTORS != null && !INTERCEPTORS.isEmpty()) {
