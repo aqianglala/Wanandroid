@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-
 import com.example.library.app.GlobalConfig;
 
 import java.io.IOException;

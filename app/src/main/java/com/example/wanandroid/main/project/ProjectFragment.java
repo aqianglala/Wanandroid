@@ -1,4 +1,4 @@
-package com.example.wanandroid.main.ui.home;
+package com.example.wanandroid.main.project;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +11,12 @@ import androidx.fragment.app.Fragment;
 import com.example.wanandroid.R;
 
 
-public class HomeFragment extends Fragment {
+public class ProjectFragment extends Fragment {
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_project, container, false);
         return root;
     }
 }
