@@ -1,8 +1,7 @@
-package com.example.wanandroid.main.home;
+package com.example.wanandroid.main.project.list;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,16 +18,10 @@ import com.example.wanandroid.R;
 import com.example.wanandroid.beans.Article;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.details.DetailsActivity;
-import com.youth.banner.Banner;
-import com.youth.banner.listener.OnBannerListener;
-import com.youth.banner.util.BannerUtils;
-
-import java.util.List;
 
 import butterknife.BindView;
 
-
-public class HomeFragment extends BaseFragment<HomePresenter> implements HomeContract.View,
+public class ProjectListFragment extends BaseFragment<ProjectListPresenter> implements ProjectListContract.View,
         OnLoadMoreListener
         , SwipeRefreshLayout.OnRefreshListener {
 
@@ -37,9 +30,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    private ArticleAdapter mAdapter;
+    private ProjectAdapter mAdapter;
     private int mPage;
-    private Banner<com.example.wanandroid.beans.Banner, MyBannerAdapter> mBanner;
+    private int mCid;
 
     @Override
     protected Object setLayout() {
@@ -48,10 +41,18 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     protected void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            mCid = arguments.getInt("cid", -1);
+        }
+        if (mCid == -1) {
+            return;
+        }
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
-        mAdapter = new ArticleAdapter();
+        mAdapter = new ProjectAdapter();
         mAdapter.getLoadMoreModule().setOnLoadMoreListener(this);
         mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -66,13 +67,12 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setRefreshing(true);
 
-        mPresenter.getBanner();
         refresh();
     }
 
     @Override
-    protected HomePresenter loadPresenter() {
-        return new HomePresenter();
+    protected ProjectListPresenter loadPresenter() {
+        return new ProjectListPresenter();
     }
 
     @Override
@@ -104,29 +104,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     }
 
     @Override
-    public void showBanner(List<com.example.wanandroid.beans.Banner> data) {
-        mBanner = new Banner<>(mActivity);
-        RecyclerView.LayoutParams layoutParams =
-                new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        (int) BannerUtils.dp2px(200));
-        mBanner.setLayoutParams(layoutParams);
-        mBanner.setAdapter(new MyBannerAdapter(data));
-        mBanner.setOnBannerListener(new OnBannerListener<com.example.wanandroid.beans.Banner>() {
-
-            @Override
-            public void OnBannerClick(com.example.wanandroid.beans.Banner data, int position) {
-                DetailsActivity.start(mActivity, data.getTitle(), data.getUrl());
-            }
-
-            @Override
-            public void onBannerChanged(int position) {
-
-            }
-        });
-        mAdapter.addHeaderView(mBanner);
-    }
-
-    @Override
     public void onLoadMore() {
         request();
     }
@@ -143,22 +120,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
     }
 
     private void request() {
-        mPresenter.getArticles(mPage);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (mBanner != null) {
-            mBanner.start();
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mBanner != null) {
-            mBanner.stop();
-        }
+        mPresenter.getArticles(mPage, mCid);
     }
 }

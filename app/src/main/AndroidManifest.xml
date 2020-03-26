@@ -12,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".main.knowledge.list.ArticleListActivity"></activity>
         <activity
             android:name=".details.DetailsActivity"
-            android:parentActivityName=".main.MainActivity"
-            android:configChanges="orientation|keyboardHidden">
-
-        </activity>
-        <activity android:name=".main.MainActivity">
+            android:configChanges="orientation|keyboardHidden"
+            android:parentActivityName=".main.MainActivity"></activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

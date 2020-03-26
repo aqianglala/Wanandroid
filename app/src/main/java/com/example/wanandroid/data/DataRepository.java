@@ -1,6 +1,8 @@
 package com.example.wanandroid.data;
 
 import com.example.wanandroid.beans.Banner;
+import com.example.wanandroid.beans.Chapter;
+import com.example.wanandroid.beans.Navigation;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
 import com.example.wanandroid.net.HttpHelper;
@@ -38,6 +40,31 @@ public class DataRepository {
     public Observable<Result<List<Banner>>> getBanner() {
         return HttpHelper.getRxRestService()
                 .getBanner();
+    }
+
+    public Observable<Result<List<Chapter>>> getTree() {
+        return HttpHelper.getRxRestService()
+                .getTree();
+    }
+
+    public Observable<Result<List<Navigation>>> getNavigation() {
+        return HttpHelper.getRxRestService()
+                .getNavigation();
+    }
+
+    public Observable<Result<List<Chapter>>> getProject() {
+        return HttpHelper.getRxRestService()
+                .getProject();
+    }
+
+    public Observable<Result<Page>> getProjectList(int page, int cid) {
+        return HttpHelper.getRxRestService()
+                .getProjectList(page, cid);
+    }
+
+    public Observable<Result<Page>> getArticleList(int page, int cid) {
+        return HttpHelper.getRxRestService()
+                .getArticleList(page, cid);
     }
 
 }
