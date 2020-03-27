@@ -1,6 +1,9 @@
 package com.example.wanandroid.main;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -15,6 +18,7 @@ import com.example.wanandroid.main.home.HomeFragment;
 import com.example.wanandroid.main.knowledge.KnowledgeFragment;
 import com.example.wanandroid.main.navigation.NavigationFragment;
 import com.example.wanandroid.main.project.ProjectFragment;
+import com.example.wanandroid.search.SearchActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends BaseActivity {
@@ -83,4 +87,21 @@ public class MainActivity extends BaseActivity {
         return null;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.search) {
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }

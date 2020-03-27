@@ -40,8 +40,8 @@ public class KnowledgeFragment extends BaseFragment<KnowledgePresenter> implemen
         mAdapter = new KnowledgeAdapter();
         mAdapter.setOnLabelClickListener(new KnowledgeAdapter.OnLabelClickListener() {
             @Override
-            public void onClick(int cid) {
-                ArticleListActivity.start(mActivity, cid);
+            public void onClick(String title, int cid) {
+                ArticleListActivity.start(mActivity, title, cid);
             }
         });
         mRecyclerView.setAdapter(mAdapter);

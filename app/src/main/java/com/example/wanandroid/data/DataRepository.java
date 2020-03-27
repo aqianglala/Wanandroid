@@ -2,9 +2,11 @@ package com.example.wanandroid.data;
 
 import com.example.wanandroid.beans.Banner;
 import com.example.wanandroid.beans.Chapter;
+import com.example.wanandroid.beans.HotWord;
 import com.example.wanandroid.beans.Navigation;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
+import com.example.wanandroid.beans.Website;
 import com.example.wanandroid.net.HttpHelper;
 
 import java.util.List;
@@ -65,6 +67,16 @@ public class DataRepository {
     public Observable<Result<Page>> getArticleList(int page, int cid) {
         return HttpHelper.getRxRestService()
                 .getArticleList(page, cid);
+    }
+
+    public Observable<Result<List<Website>>> getWebsites() {
+        return HttpHelper.getRxRestService()
+                .getWebsites();
+    }
+
+    public Observable<Result<List<HotWord>>> getHotWords() {
+        return HttpHelper.getRxRestService()
+                .getHotWords();
     }
 
 }

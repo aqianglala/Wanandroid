@@ -33,7 +33,7 @@ public class KnowledgeAdapter extends BaseQuickAdapter<Chapter, BaseViewHolder> 
                     box.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            mListener.onClick(child.getId());
+                            mListener.onClick(child.getName(), child.getId());
                         }
                     });
                 }
@@ -49,6 +49,6 @@ public class KnowledgeAdapter extends BaseQuickAdapter<Chapter, BaseViewHolder> 
     }
 
     interface OnLabelClickListener {
-        void onClick(int cid);
+        void onClick(String title, int cid);
     }
 }

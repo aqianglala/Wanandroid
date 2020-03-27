@@ -3,9 +3,11 @@ package com.example.wanandroid.net;
 
 import com.example.wanandroid.beans.Banner;
 import com.example.wanandroid.beans.Chapter;
+import com.example.wanandroid.beans.HotWord;
 import com.example.wanandroid.beans.Navigation;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
+import com.example.wanandroid.beans.Website;
 
 import java.util.List;
 
@@ -36,4 +38,10 @@ public interface ApiService {
 
     @GET("article/list/{page}/json")
     Observable<Result<Page>> getArticleList(@Path("page") int page, @Query("cid") int cid);
+
+    @GET("friend/json")
+    Observable<Result<List<Website>>> getWebsites();
+
+    @GET("hotkey/json")
+    Observable<Result<List<HotWord>>> getHotWords();
 }
