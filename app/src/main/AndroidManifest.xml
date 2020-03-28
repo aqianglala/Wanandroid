@@ -13,18 +13,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".details.DetailsActivity"
-            android:parentActivityName=".main.MainActivity"
-            android:configChanges="orientation|keyboardHidden">
+            android:name=".search.SearchActivity"
+            android:parentActivityName=".main.MainActivity">
 
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value="com.example.wanandroid.search.result.SearchResultsActivity" />
         </activity>
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".search.result.SearchResultsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".main.knowledge.list.ArticleListActivity"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".details.DetailsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:parentActivityName=".main.MainActivity" />
+        <activity
+            android:name=".main.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

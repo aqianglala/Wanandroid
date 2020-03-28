@@ -56,7 +56,7 @@ public class DetailsActivity extends BaseActivity {
         myWebView = new WebView(this);
         FrameLayout.LayoutParams layoutParams =
                 new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+                        ViewGroup.LayoutParams.MATCH_PARENT);
         fl_container.addView(myWebView, layoutParams);
         // 2. 配置webview
         WebSettings webSettings = myWebView.getSettings();
