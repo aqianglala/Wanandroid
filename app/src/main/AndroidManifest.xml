@@ -20,7 +20,9 @@
                 android:name="android.app.default_searchable"
                 android:value="com.example.wanandroid.search.result.SearchResultsActivity" />
         </activity>
-        <activity android:name=".search.result.SearchResultsActivity">
+        <activity
+            android:name=".search.result.SearchResultsActivity"
+            android:parentActivityName=".search.SearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <category android:name="android.intent.category.DEFAULT" />

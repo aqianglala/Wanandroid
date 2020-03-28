@@ -12,7 +12,9 @@ import com.example.wanandroid.beans.Website;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -44,4 +46,7 @@ public interface ApiService {
 
     @GET("hotkey/json")
     Observable<Result<List<HotWord>>> getHotWords();
+
+    @POST("article/query/{page}/json")
+    Observable<Result<Page>> getSearchResults(@Path("page") int page, @Field("k") String key);
 }

@@ -48,8 +48,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     @Override
     protected void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(mActivity,
                 DividerItemDecoration.VERTICAL));
         mAdapter = new ArticleAdapter();
         mAdapter.getLoadMoreModule().setOnLoadMoreListener(this);

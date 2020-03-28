@@ -79,4 +79,9 @@ public class DataRepository {
                 .getHotWords();
     }
 
+    public Observable<Result<Page>> getSearchResults(int page, String key) {
+        return HttpHelper.getRxRestService()
+                .getSearchResults(page, key);
+    }
+
 }
