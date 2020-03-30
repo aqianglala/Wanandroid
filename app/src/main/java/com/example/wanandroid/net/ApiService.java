@@ -7,6 +7,7 @@ import com.example.wanandroid.beans.HotWord;
 import com.example.wanandroid.beans.Navigation;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
+import com.example.wanandroid.beans.User;
 import com.example.wanandroid.beans.Website;
 
 import java.util.List;
@@ -49,4 +50,10 @@ public interface ApiService {
 
     @POST("article/query/{page}/json")
     Observable<Result<Page>> getSearchResults(@Path("page") int page, @Field("k") String key);
+
+    @POST("user/login")
+    Observable<Result<User>> login(@Field("username") String username, @Field("password") String password);
+
+    @POST("user/register")
+    Observable<Result<User>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 }

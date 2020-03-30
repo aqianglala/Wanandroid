@@ -10,4 +10,7 @@
     <string name="title_hot">热搜</string>
     <string name="title_history">历史搜索</string>
     <string name="title_website">常用网站</string>
+    <string name="user_name">账号</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
 </resources>

@@ -52,4 +52,5 @@ dependencies {
     api 'com.trello.rxlifecycle3:rxlifecycle:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
     api 'com.trello.rxlifecycle3:rxlifecycle-components:3.0.0'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 }

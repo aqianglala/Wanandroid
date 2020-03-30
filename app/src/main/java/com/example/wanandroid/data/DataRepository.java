@@ -6,6 +6,7 @@ import com.example.wanandroid.beans.HotWord;
 import com.example.wanandroid.beans.Navigation;
 import com.example.wanandroid.beans.Page;
 import com.example.wanandroid.beans.Result;
+import com.example.wanandroid.beans.User;
 import com.example.wanandroid.beans.Website;
 import com.example.wanandroid.net.HttpHelper;
 
@@ -82,6 +83,16 @@ public class DataRepository {
     public Observable<Result<Page>> getSearchResults(int page, String key) {
         return HttpHelper.getRxRestService()
                 .getSearchResults(page, key);
+    }
+
+    public Observable<Result<User>> login(String userName, String password) {
+        return HttpHelper.getRxRestService()
+                .login(userName, password);
+    }
+
+    public Observable<Result<User>> register(String userName, String password, String repassword) {
+        return HttpHelper.getRxRestService()
+                .register(userName, password, repassword);
     }
 
 }
